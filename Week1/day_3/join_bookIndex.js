@@ -17,8 +17,8 @@ const separator2 = "-";
 const expected2 = "1-2-3";
 
 const arr3 = [1, 2, 3];
-const separator3 = " - ";
-const expected3 = "1 - 2 - 3";
+const separator3 = "&&&";
+const expected3 = "1&&&2&&&3";
 
 const arr4 = [1];
 const separator4 = ", ";
@@ -36,7 +36,9 @@ const expected5 = "";
  * @param {string} separator To separate each item of the given arr.
  * @return {string} The given array items as a string separated by the given separator.
  */
-function join(arr, separator) {}
+function join(arr, separator) {
+
+}
 
 /*****************************************************************************/
 
@@ -44,7 +46,8 @@ function join(arr, separator) {}
 /* 
   Book Index
   Given an arry of ints representing page numbers
-  return a string with the page numbers formatted as page ranges when the nums span a consecutive range
+  return a string with the page numbers formatted as page ranges 
+  when the nums span a consecutive range
 */
 
 const nums1 = [1, 13, 14, 15, 37, 38, 70];
