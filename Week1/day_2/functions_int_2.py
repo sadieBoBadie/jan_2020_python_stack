@@ -28,21 +28,16 @@ students[0]['last_name'] = 'Bryant'
 
 
 # In the sports_directory, change 'Messi' to 'Andres'
-sports_directory['soccer'][0] = 'Andres'
-
-# Change the value 20 in z to 30
-z[0]['y'] = 30
-
 #dictionaries: key/value pairs
 players = sports_directory['soccer'] # ==> ['Messi', 'Ronaldo', 'Rooney']
 players[0] = "Andres"
 
 # OR
 
+sports_directory['soccer'][0] = 'Andres'
 
-
-
-print(sports_directory)
+# Change the value 20 in z to 30
+z[0]['y'] = 30
 
 
 
