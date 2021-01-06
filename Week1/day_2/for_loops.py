@@ -16,8 +16,8 @@ students = [
      {'first_name' : 'Manny', 'last_name' : 'Rivera'}
 ]
 
-# for i in range(len(students)):
-#     print(students[i]['first_name'])
+for i in range(len(students)):
+    print(students[i]['first_name'])
 
 
 my_list = [4, 5, 6, 7, 8]
@@ -25,6 +25,6 @@ my_list = [4, 5, 6, 7, 8]
 for value in my_list:
     print(value)
 
-for val in students:
-    print(val)
+for student in students:
+    print(student['first_name'])
 
