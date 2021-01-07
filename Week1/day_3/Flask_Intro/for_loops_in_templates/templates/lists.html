@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendering Stuff</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+        </tr>
+
+        {% for one_student in students: %}
+            <tr>
+                <td>{{one_student["name"]}}</td>
+                <td>{{one_student["age"]}}</td>
+            </tr>
+        {% endfor %}
+
+
+
+    </table>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime eligendi animi omnis doloribus velit nam.
+        Pariatur fugiat dolorem, sed delectus in vitae eum voluptatem error nulla numquam unde autem exercitationem.</p>
+</body>
+
+</html>
