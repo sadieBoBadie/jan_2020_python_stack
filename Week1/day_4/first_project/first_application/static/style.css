@@ -1,0 +1,15 @@
+h1 {
+    color: darkblue;
+    background-color: fuchsia;
+}
+
+ul {
+    padding: 10px;
+    background-color: purple;
+}
+
+li {
+    padding-left: 10px;
+    color: white;
+    background-color: purple;
+}
