@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POst Get</title>
+</head>
+<body>
+
+    <h2>Post and Get stuff!</h2>
+
+    <a href="/show_kitties">Go to see kitties!!!</a>
+    <a href="/show_kitty/1">Show # 1 Kitty</a>
+
+    <form action="/process_kitty" method="POST">
+        {% csrf_token %}
+        
+        <p>First Name:</p>
+        <input type="text" name="first_name">
+
+        <p>Last Name:</p>
+        <input type="text" name="last_name">
+
+        <p>Credit Card Number:</p>
+        <input type="text" name="cc_number">
+
+        <input type="submit" value="Submit Info">
+    
+    </form>
+    
+</body>
+</html>
