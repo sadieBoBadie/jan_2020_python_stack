@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+# GIT WRECKED!!!
 # Create your views here.
 def index(request): 
     print("In index route")
