@@ -37,7 +37,7 @@ def show(rank):
 
 def enter(request):
     print(request.POST)
-    name = request.POST["FirstName"] + " " + request.POST["Last_Name"]
+    name = request.POST["first_name"] + " " + request.POST["last_name"]
     request.session['user_name'] = name
     return redirect('/leaderboard')
 

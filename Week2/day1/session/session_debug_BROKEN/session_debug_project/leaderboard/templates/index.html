@@ -16,7 +16,7 @@
         <h2>Please enter your name:</h2>
 
         <form action="/enter" method="post">
-
+            {% csrf_token %}
             <div class="form-group">
                 <label for="FirstName">First Name:</label>
                 <input class="form-control" type="text" name="first_name" id="firstName">
