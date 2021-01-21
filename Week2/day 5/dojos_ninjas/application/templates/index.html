@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and Ninjas!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    
+    {{dojos}}
+
+    <form action="/create_dojo" method="post">
+        {% csrf_token %}
+        <h1>Add a Dojo!</h1>
+        <p><label for="name">Name</label></p>
+        <input type="text" name="name" id="name">
+
+        <p><label for="city">City</label></p>
+        <input type="text" name="city" id="city">
+
+        <p><label for="state">State</label></p>
+        <input type="text" name="state" id="state">
+
+        <input type="submit" value="Add Dojo">
+    </form>
+
+
+
+    
+
+    <form action="/create_ninja" method="post">
+        {% csrf_token %}
+        <h1>Add Ninja!</h1>
+        <p><label for="first_name">First Name</label></p>
+        <input type="text" name="first_name" id="first_name">
+
+        <p><label for="last_name">Last Name</label></p>
+        <input type="text" name="last_name" id="last_name">
+
+        <p>Select a dojo</p>
+        <!-- will need to pass in to the render function from db -->
+        <select name="dojo_id">
+            <!-- dojos is a list of dojo objects -->
+            {% for school in dojos %}
+                <!-- school is a dojo object -->
+                <option value="{{school.id}}">{{school.name}}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Add Dojo">
+    </form>
+
+
+    <h1>All Dojos!</h1>
+
+    <!-- Will need to get these from the db -->
+    {% for one_dojo in dojos %}
+        <h3>Ninjas at the {{one_dojo.name}}</h3>
+        <ul>
+            {% for ninja in one_dojo.ninjas.all %}
+                <li>{{ninja.first_name}} {{ninja.last_name}}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+
+</body>
+</html>
