@@ -1,5 +1,7 @@
 from django.db import models
+import re
 
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 class UserManager(models.Manager):
 
@@ -8,22 +10,39 @@ class UserManager(models.Manager):
 
     def registrationValidator(self, postData):
         errors = {}
-        if postData["first_name"] < 2:
-            errors["first_name"] = "Name must be at least 2 character"
+        # first and last blank?
+        if len(postData["first_name"]) == 0:
+            errors["first_name_blank"] = "First required."
+        elif len(postData["first_name"]) < 2:
+            errors["first_name"] = "First needs at least 2 characters"
 
-        if User.objects.filter(email = postData["email"]):
-            errors["email"] = "Account already exists, please log in"
+        if len(postData["last_name"]) < 2:
+            errors["first_name"] = "First needs at least 2 characters"
+        
+        # email blank
+
+        # Email right format? --> regex
+        if not EMAIL_REGEX.match(postData['email']):    # test whether a field matches the pattern            
+            errors['email'] = "Invalid email address!"
+        
+        # Password: 
+        #   length > 8, optional pattern validation,
+        #   check if pw and confirm are the same
+        if postData["password"] != postData["confirm_password"]:
+            errors['password'] = "Passwords do not match!"
+
+        # in views??
+        # Check if already in DB
+        user = User.objects.filter(email=postData["email"])
+        if user:
+            errors['email'] = "Account already exists."
+        # if is an empty list -- good to go
+        # if not empty error
+        print("*"*30)
+        print(test)
 
         return errors
-
-    def loginValidator(self, postData):
-        if not User.objects.filter(email = postData["email"]):
-            errors["email"] = "Account not found"
-        else:
-            if not bcrypt.checkpw(request.POST['password'].encode(), user.pw_hash.encode()):
-                errors["password"] = "Login failed"
-
-        return redirect('/')
+    
 
 # Create your models here.
 class User(models.Model):
